@@ -1,0 +1,344 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+section{
+      position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px;
+    background: #fff
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+header .logo{
+    position: relative;
+    min-width:80px ;
+}
+header ul{
+    position: relative;
+    display: flex;
+}
+
+header ul li{
+    list-style: none;
+}
+header ul li a{
+    position: relative;
+    margin-left: 40px;
+    color: #333;
+    font-size: 35px;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Underline effect */
+header ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;       /* underline position */
+    width: 0%;          /* start with 0 */
+    height: 2px;        /* underline thickness */
+    background: #017143; /* Starbucks green */
+    transition: 0.4s ease;
+}
+
+
+/* Hover effect */
+header ul li a:hover::after {
+    width: 100%;       /* underline expands on hover */
+}
+
+/* Optional: color change on hover */
+header ul li a:hover {
+    color: #017143;
+
+}
+
+
+
+
+
+.starbucks{
+    width: 300px;          /* SAME size for all images */
+    height: auto;
+    object-fit: contain;
+    transition: 0.5s ease;
+}
+
+.imgBox{
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;   /* IMPORTANT */
+}
+
+
+.content{
+    position: relative;
+    width:100% ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.content .textbox{
+    position: relative;
+    max-width: 600px;
+}
+
+.content .textbox h2{
+
+    font-size: 4em;
+    color: #333;
+    line-height: 1.4em;
+   font-weight: 500;
+}
+
+.content .textbox h2 span{
+    font-size: 1.2em;
+    color: #017143;
+    font-weight: 900;
+}
+.content .textbox p{
+    font-size: 1.2em;
+    color: #333;
+    
+}
+
+.content .textbox a {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 20px;
+    background: #017143;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 40px;
+    font-size:20px ;
+    transition: all 0.4s ease; /* 🔹 smooth transition for all properties */
+    transform: scale(1);       /* initial scale */
+}
+
+
+.content .textbox a:hover {
+    background: #fff;           /* background change */
+    color: #017143;             /* text color change */
+    transform: scale(1.1);      /* slight zoom effect */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* shadow for depth */
+}
+
+
+
+
+.content .imgBox{
+    width:600px ;
+    display: flex;
+    justify-content: flex-end;
+   padding-right:50px ;
+   margin-top:50px ;
+
+}
+
+.imgBox img{
+    position: relative;
+    z-index: 2;
+
+}
+
+.thumb {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    
+}
+
+.thumb li{
+    list-style: none;
+    display: inline-block;
+    margin: 0  20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.thumb li:hover{
+  transform: translateY(-15px);
+
+}
+
+.thumb li img{
+   max-width: 60px; 
+}
+
+.sci{
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+     justify-content: center;
+    flex-direction: column;
+}
+.sci li{
+    list-style: none;
+    
+    
+}
+
+
+.sci li a{
+    display: inline-block;
+    margin: 5px 0;
+    transform: scale(0.6);
+    color: #fff;
+}
+
+.circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #017143;
+    clip-path: circle(25% at 85% 55%);
+    z-index: 1;
+}
+
+
+.circle.active{
+    clip-path: circle(30% at 80% 55%);
+    transition: 1s ease-in-out;
+} 
+
+
+.sci{
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Mobile devices: max width 768px */
+@media screen and (max-width: 768px) {
+    
+    section {
+        flex-direction: column;  /* text & image stack vertically */
+        padding: 50px 20px;      /* padding kam karo */
+    }
+
+    .content {
+        flex-direction: column;  /* textbox aur imgBox vertically align */
+        align-items: center;
+        text-align: center;       /* text center */
+    }
+
+    .content .textbox h2 {
+        font-size: 2.5em;        /* heading chhota karo */
+    }
+
+    .content .textbox p {
+        font-size: 1em;           /* paragraph chhota karo */
+    }
+
+    .content .imgBox {
+        width: 100%;
+        justify-content: center;  /* image center */
+        padding-right: 0;
+        margin-top: 30px;
+    }
+
+    .imgBox img {
+        width: 200px;            /* image chhota karo */
+    }
+
+    /* Thumbnails bottom me center */
+    .thumb {
+        bottom: 10px;
+        flex-wrap: wrap;         /* agar thumbnails zyada ho to wrap ho jaye */
+    }
+
+    /* Social icons right se left side corner me */
+    .sci {
+        top: auto;
+        bottom: 20px;
+        right: 50%;
+        transform: translateX(50%);
+        flex-direction: row;
+    }
+
+    /* Circle size adjust for mobile */
+    .circle {
+        clip-path: circle(50% at 80% 40%);  /* chhota aur slightly reposition */
+    }
+
+    header {
+        padding: 15px 20px;       /* mobile friendly padding */
+    }
+
+    header ul li a {
+        margin-left: 20px;        /* menu spacing kam karo */
+        font-size: 14px;          /* font size chhota karo */
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
